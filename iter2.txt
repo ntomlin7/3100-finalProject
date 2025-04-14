@@ -1,0 +1,17 @@
+STUDENT AND FACULTY MEMBER
+
+STUDENT:
+    - Writing reviews about group they are in.
+    - Key from professor which enrolls them in class
+    - Student should be able to leave a group
+    - View teammates info (Name, email, contact info(phone, disc, teams))
+    - Take a survey that faculty has given and apply to each person in group
+        - Can select public or private
+    - Results of the feedback
+
+TEACHER:
+    - See everything
+    - Should be able to create evaluations with different types of questions (mult. choice, multi select, short answer, essay, likehardt scale)
+    - See all responses
+    - Who has not completed
+    - Release data to end users or not
