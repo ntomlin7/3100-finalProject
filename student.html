@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwollenHippo Group Evals - Student View</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/pulse/bootstrap.min.css" integrity="sha384-L7+YG8QLqGvxQGffJ6utDKFwmGwtLcCjtwvonVZR/Ba2VzhpMwBz51GaXnUsuYbj" crossorigin="anonymous">
+  <style>
+    /* Re-use your custom styling */
+    .card {
+      border: none;
+      border-radius: 1rem;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+    .cust-form {
+      border: none;
+      border-radius: 1rem;
+      background-color: #302D3F;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+    .card-header {
+      background-color: #2a2a2a;
+      color: #fff;
+      padding: 1rem 1.25rem;
+      margin: 0;
+      font-weight: 600;
+      border: none;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    .cust-card-color {
+      background-color: #262335;
+    }
+    .cust-survey-color {
+      background-color: #302D3F;
+    }
+    
+    /* Form controls and select styling */
+    .form-control {
+      background-color: #302D3F !important;
+      color: #fff !important;
+      border: 1px solid #302D3F !important;
+    }
+    .form-control:focus {
+      background-color: #302D3F !important;
+      color: #fff !important;
+      border-color: #302D3F !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+    select {
+      background-color: #302D3F !important;
+      color: #fff !important;
+      border: 1px solid #302D3F !important;
+    }
+    select:focus {
+      background-color: #302D3F !important;
+      color: #fff !important;
+      border-color: #302D3F !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+    select option {
+      background-color: #302D3F;
+      color: #fff;
+    }
+  </style>
+</head>
+<body class="bg-dark">
+  <!-- Main dashboard view -->
+  <div class="container mt-4">
+    <!-- Top navigation buttons specific to student view -->
+    <div class="row mb-4" role="navigation" aria-label="Student Main Navigation">
+      <div class="col-md-3">
+        <button class="btn btn-primary btn-lg btn-block rounded" id="btnMyEvals" aria-label="View My Evaluations">
+          My Evaluations
+        </button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-primary btn-lg btn-block rounded" id="btnGroupInfo" aria-label="View Group Information">
+          Group Info
+        </button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-primary btn-lg btn-block rounded" id="btnEnrollKey" aria-label="Enter Enrollment Key">
+          Enrollment Key
+        </button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-primary btn-lg btn-block rounded" id="btnTakeEval" aria-label="Take Evaluation">
+          Take Evaluation
+        </button>
+      </div>
+    </div>
+    
+    <!-- Main content area -->
+    <div class="row">
+      <!-- Left sidebar: Classes and Invites (same as professor view) -->
+      <div class="col-md-3 rounded" role="complementary" aria-label="Sidebar: Classes and Invites">
+        <!-- Classes card -->
+        <div class="card mb-4 rounded">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0" aria-label="Classes Section Header">Classes</h5>
+          </div>
+          <div class="card-body p-0">
+            <div class="list-group" role="list" aria-label="List of Classes">
+              <a href="#" class="list-group-item list-group-item-action cust-card-color" aria-label="Team 1">Team 1</a>
+              <a href="#" class="list-group-item list-group-item-action cust-card-color" aria-label="Team 2">Team 2</a>
+              <a href="#" class="list-group-item list-group-item-action cust-card-color" aria-label="Burchfield">Burchfield</a>
+            </div>
+          </div>
+        </div>
+        <!-- Invites card -->
+        <div class="card mb-4 rounded">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0" aria-label="Invites Section Header">Invites</h5>
+          </div>
+          <div class="card-body p-0">
+            <ul class="list-group" role="list" aria-label="List of Invites">
+              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cust-card-color" aria-label="Pending Invites">
+                Pending Invites
+                <span class="badge badge-primary badge-pill rounded" aria-label="14 pending">14</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cust-card-color" aria-label="Sent Invites">
+                Sent Invites
+                <span class="badge badge-primary badge-pill rounded" aria-label="2 sent">2</span>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Student's main content area -->
+      <div class="col-md-9 rounded" role="main">
+        <!-- My Evaluations Section -->
+        <div id="myEvalsSection">
+          <div class="card rounded cust-card-color">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0" aria-label="My Evaluations Section Header">My Evaluations</h5>
+            </div>
+            <div class="card-body">
+              <div class="row row-cols-1 row-cols-md-2 g-4">
+                <!-- Sample evaluation result card -->
+                <div class="col">
+                  <div class="card h-100 border-primary rounded cust-survey-color">
+                    <div class="card-body">
+                      <h5 class="card-title text-white" aria-label="Evaluation Title">Peer Evaluation: Group Project</h5>
+                      <p class="card-text text-white" aria-label="Evaluation Status">Feedback has been released</p>
+                      <span class="badge bg-primary rounded text-white" aria-label="Status Released">Released</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Additional evaluation cards can be added here -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Group Info Section -->
+        <div id="groupInfoSection" style="display:none;">
+          <div class="card rounded cust-card-color">
+            <div class="card-header bg-info text-white">
+              <h5 class="mb-0" aria-label="Group Info Section Header">Group Info</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-group" role="list" aria-label="Teammates Information">
+                <li class="list-group-item cust-card-color">
+                  <strong>John Doe</strong> – john.doe@example.com – Phone: 123-456-7890 – Discord: JohnD
+                </li>
+                <li class="list-group-item cust-card-color">
+                  <strong>Jane Smith</strong> – jane.smith@example.com – Teams: JaneS
+                </li>
+                <!-- More teammates as needed -->
+              </ul>
+              <div class="d-grid gap-2 mt-3">
+                <button type="button" class="btn btn-danger rounded" id="btnLeaveGroup" aria-label="Leave Group">
+                  Leave Group
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Enrollment Key Section -->
+        <div id="enrollKeySection" style="display:none;">
+          <div class="card rounded cust-card-color">
+            <div class="card-header bg-warning text-white">
+              <h5 class="mb-0" aria-label="Enrollment Key Section Header">Enrollment Key</h5>
+            </div>
+            <div class="card-body">
+              <form id="frmEnrollKey" role="form" aria-label="Enrollment Key Form">
+                <div class="mb-3">
+                  <label for="txtEnrollKey" class="form-label text-white">Enter Enrollment Key from Professor</label>
+                  <input type="text" class="form-control rounded cust-form" id="txtEnrollKey" placeholder="Enrollment Key" aria-label="Enrollment Key Input">
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="button" class="btn btn-warning rounded" id="btnSubmitEnrollKey" aria-label="Submit Enrollment Key">
+                    Enroll
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Take Evaluation Section -->
+        <div id="takeEvalSection" style="display:none;">
+          <div class="card rounded cust-card-color">
+            <div class="card-header bg-secondary text-white">
+              <h5 class="mb-0" aria-label="Take Evaluation Section Header">Take Evaluation</h5>
+            </div>
+            <div class="card-body">
+              <form id="frmTakeEval" role="form" aria-label="Take Evaluation Form">
+                <div class="mb-3">
+                  <label for="txtEvalResponse" class="form-label text-white">Question 1: How was the team dynamics?</label>
+                  <textarea class="form-control rounded cust-form" id="txtEvalResponse" rows="3" placeholder="Your response" aria-label="Evaluation Response Input"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label text-white">Response Visibility</label>
+                  <select class="form-control rounded cust-form" id="cboResponseVisibility" aria-label="Select Response Visibility">
+                    <option value="">Select visibility</option>
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                  </select>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="button" class="btn btn-secondary rounded" id="btnSubmitEvalResponse" aria-label="Submit Evaluation Response">
+                    Submit Evaluation
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+      </div> <!-- End student's main content area -->
+    </div> <!-- End row -->
+  </div> <!-- End container -->
+  
+  <!-- Vanilla JavaScript (no jQuery) -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    // Helper function to hide all student sections
+    function hideStudentSections() {
+      var sections = ['myEvalsSection', 'groupInfoSection', 'enrollKeySection', 'takeEvalSection'];
+      sections.forEach(function(id) {
+        var section = document.getElementById(id);
+        if (section) {
+          section.style.display = "none";
+        }
+      });
+    }
+    
+    // Helper function to update top navigation button styles
+    function updateTopNavClasses(activeButton) {
+      var navButtons = document.querySelectorAll('.row.mb-4 .btn');
+      navButtons.forEach(function(button) {
+        button.classList.remove('btn-secondary');
+        button.classList.add('btn-primary');
+      });
+      activeButton.classList.remove('btn-primary');
+      activeButton.classList.add('btn-secondary');
+    }
+    
+    // Section switching event listeners
+    document.getElementById('btnMyEvals').addEventListener('click', function() {
+      hideStudentSections();
+      document.getElementById('myEvalsSection').style.display = "block";
+      updateTopNavClasses(this);
+    });
+    document.getElementById('btnGroupInfo').addEventListener('click', function() {
+      hideStudentSections();
+      document.getElementById('groupInfoSection').style.display = "block";
+      updateTopNavClasses(this);
+    });
+    document.getElementById('btnEnrollKey').addEventListener('click', function() {
+      hideStudentSections();
+      document.getElementById('enrollKeySection').style.display = "block";
+      updateTopNavClasses(this);
+    });
+    document.getElementById('btnTakeEval').addEventListener('click', function() {
+      hideStudentSections();
+      document.getElementById('takeEvalSection').style.display = "block";
+      updateTopNavClasses(this);
+    });
+    
+    // Enrollment Key form submission with input validation
+    document.getElementById('btnSubmitEnrollKey').addEventListener('click', function() {
+      var enrollmentKey = document.getElementById('txtEnrollKey').value.trim();
+      if (enrollmentKey === "") {
+        Swal.fire({
+          title: "Input Error",
+          html: "Enrollment Key is required.",
+          icon: "error"
+        });
+        return;
+      }
+      Swal.fire({
+        title: "Enrolled!",
+        text: "You have been successfully enrolled in the class.",
+        icon: "success"
+      });
+    });
+    
+    // Take Evaluation form submission with input validation
+    document.getElementById('btnSubmitEvalResponse').addEventListener('click', function() {
+      var response = document.getElementById('txtEvalResponse').value.trim();
+      var visibility = document.getElementById('cboResponseVisibility').value.trim();
+      var errors = "";
+      if (response === "") {
+        errors += "Your evaluation response is required.<br>";
+      }
+      if (visibility === "") {
+        errors += "Please select a response visibility.<br>";
+      }
+      if (errors !== "") {
+        Swal.fire({
+          title: "Input Error",
+          html: errors,
+          icon: "error"
+        });
+        return;
+      }
+      Swal.fire({
+        title: "Evaluation Submitted!",
+        text: "Your evaluation response has been submitted.",
+        icon: "success"
+      });
+    });
+    
+    // Leave Group button simulation
+    document.getElementById('btnLeaveGroup').addEventListener('click', function() {
+      Swal.fire({
+        title: "Left Group",
+        text: "You have left the group.",
+        icon: "success"
+      });
+    });
+    
+    // Set default view on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('btnMyEvals').click();
+    });
+  </script>
+</body>
+</html>
