@@ -11,18 +11,18 @@
       border: none;
       border-radius: 1rem;
       background-color: #262335;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       position: relative;
     }
     .cust-form {
       border: none;
       border-radius: 1rem;
       background-color: #262335;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       position: relative;
     }
     .card-header {
-      background-color: #2a2a2a ;
+      background-color: #2a2a2a;
       color: #fff;
       padding: 1rem 1.25rem;
       margin: 0;
@@ -74,56 +74,43 @@
       margin-bottom: 1.5rem;
       padding-bottom: 1.5rem;
     }
+    /* Active list-group items mimic the styling of your team buttons */
+    .list-group-item.active, 
+    .list-group-item.active:hover {
+      background-color: #3A324B;
+      border-color: #3A324B;
+      color: #fff;
+    }
   </style>
 </head>
 <body class="bg-dark">
   <!-- Main dashboard view -->
   <div class="container mt-4">
-    <!-- Top navigation buttons (5 equally distributed buttons) -->
-    <div class="row mb-4" role="navigation" aria-label="Main Navigation">
-      <div class="col">
-        <button class="btn btn-primary btn-lg btn-block rounded" 
-                id="btnCreatedEvals" 
-                aria-label="View Created Evaluations">
-          Created Evaluations
-        </button>
-      </div>
-      <div class="col">
-        <button class="btn btn-primary btn-lg btn-block rounded" 
-                id="btnEvalResponses" 
-                aria-label="View Evaluation Responses">
-          Eval. Responses
-        </button>
-      </div>
-      <div class="col">
-        <button class="btn btn-primary btn-lg btn-block rounded" 
-                id="btnPendingSubs" 
-                aria-label="View Pending Submissions">
-          Submissions
-        </button>
-      </div>
-      <div class="col">
-        <button class="btn btn-primary btn-lg btn-block rounded" 
-                id="btnCreateEval" 
-                aria-label="Create New Evaluation">
-          Create Evaluation
-        </button>
-      </div>
-      <div class="col">
-        <button class="btn btn-primary btn-lg btn-block rounded" 
-                id="btnCreateClass" 
-                aria-label="Create New Class">
-          Create Class
-        </button>
-      </div>
-    </div>
-    
-    <!-- Main content area -->
     <div class="row">
-      <!-- Left sidebar with dropdown menus -->
-      <div class="col-md-3 rounded" role="complementary" aria-label="Sidebar - Classes and Invites">
-        <!-- Classes card -->
+      <!-- Left Sidebar -->
+      <div class="col-md-3 rounded" role="complementary" aria-label="Sidebar Navigation">
+        <!-- Menu Card: 5 navigation items -->
         <div class="card mb-4 rounded">
+          <div class="card-header bg-primary text-white rounded">
+            <h5 class="mb-0" aria-label="Menu">Menu</h5>
+          </div>
+          <div class="card-body p-0">
+            <div class="list-group" id="sidebarMenu" role="list" aria-label="Navigation Menu">
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" 
+                 id="btnCreatedEvals" aria-label="View Created Evaluations">Created Evaluations</a>
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" 
+                 id="btnEvalResponses" aria-label="View Evaluation Responses">Eval. Responses</a>
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" 
+                 id="btnPendingSubs" aria-label="View Submissions">Submissions</a>
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" 
+                 id="btnCreateEval" aria-label="Create New Evaluation">Create Evaluation</a>
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" 
+                 id="btnCreateClass" aria-label="Create New Class">Create Class</a>
+            </div>
+          </div>
+        </div>
+        <!-- Classes Card (existing) -->
+        <div class="card mb-4 rounded" aria-label="Classes Section">
           <div class="card-header bg-primary text-white rounded">
             <h5 class="mb-0" aria-label="Classes Section Header">Classes</h5>
           </div>
@@ -135,8 +122,8 @@
             </div>
           </div>
         </div>
-        <!-- Invites card -->
-        <div class="card mb-4 rounded">
+        <!-- Invites Card (existing) -->
+        <div class="card mb-4 rounded" aria-label="Invites Section">
           <div class="card-header bg-primary text-white rounded">
             <h5 class="mb-0" aria-label="Invites Section Header">Invites</h5>
           </div>
@@ -156,8 +143,7 @@
           </div>
         </div>
       </div>
-      
-      <!-- Professor's main content area -->
+      <!-- Main Content Area -->
       <div class="col-md-9 rounded" role="main">
         <!-- Created Evaluations Section -->
         <div id="createdEvalsSection">
@@ -166,7 +152,7 @@
               <h5 class="mb-0" aria-label="Created Evaluations Section Header">Created Evaluations</h5>
             </div>
             <div class="card-body">
-              <!-- 3 columns per row for similar card sizes -->
+              <!-- 3 columns per row -->
               <div class="row row-cols-1 row-cols-md-3 g-4">
                 <!-- Sample evaluation card -->
                 <div class="col">
@@ -179,7 +165,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- Additional evaluation cards can be added here -->
+                <!-- Additional evaluation cards as needed -->
               </div>
             </div>
           </div>
@@ -225,7 +211,7 @@
             </div>
             <div class="card-body">
               <div class="list-group" role="list" aria-label="Pending Submissions List">
-                <a href="#" class="list-group-item list-group-item-action cust-card-color" aria-label="Group Project Eval - 3 Pending">
+                <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" aria-label="Group Project Eval - 3 Pending">
                   Group Project Eval - 3 Pending
                 </a>
                 <!-- More pending items as needed -->
@@ -341,14 +327,14 @@
           </div>
         </div>
         
-      </div> <!-- End professor's main content area -->
+      </div> <!-- End main content area -->
     </div> <!-- End row -->
   </div> <!-- End container -->
   
-  <!-- JavaScript (Vanilla JS conversion of jQuery code) -->
+  <!-- JavaScript (Vanilla JS) -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    // Helper: hide professor sections by id
+    // Helper: hide all professor sections by IDs
     function hideProfessorSections() {
       const sections = ['createdEvalsSection', 'evalResponsesSection', 'pendingSubsSection', 'createEvalSection', 'createClassSection'];
       sections.forEach(function(id) {
@@ -359,47 +345,45 @@
       });
     }
 
-    // Helper: Update top navigation buttons classes
-    function updateTopNavClasses(activeButton) {
-      const navButtons = document.querySelectorAll('.row.mb-4 .btn');
-      navButtons.forEach(function(btn) {
-        btn.classList.remove('btn-secondary');
-        btn.classList.add('btn-primary');
+    // Helper: Update active navigation in sidebar menu
+    function updateSidebarActive(activeElement) {
+      const navItems = document.querySelectorAll('#sidebarMenu .list-group-item');
+      navItems.forEach(function(item) {
+        item.classList.remove('active');
       });
-      activeButton.classList.remove('btn-primary');
-      activeButton.classList.add('btn-secondary');
+      activeElement.classList.add('active');
     }
 
     // Section switching event listeners
     document.getElementById('btnCreatedEvals').addEventListener('click', function() {
       hideProfessorSections();
       document.getElementById('createdEvalsSection').style.display = "block";
-      updateTopNavClasses(this);
+      updateSidebarActive(this);
     });
     document.getElementById('btnEvalResponses').addEventListener('click', function() {
       hideProfessorSections();
       document.getElementById('evalResponsesSection').style.display = "block";
-      updateTopNavClasses(this);
+      updateSidebarActive(this);
     });
     document.getElementById('btnPendingSubs').addEventListener('click', function() {
       hideProfessorSections();
       document.getElementById('pendingSubsSection').style.display = "block";
-      updateTopNavClasses(this);
+      updateSidebarActive(this);
     });
     document.getElementById('btnCreateEval').addEventListener('click', function() {
       hideProfessorSections();
       document.getElementById('createEvalSection').style.display = "block";
-      updateTopNavClasses(this);
+      updateSidebarActive(this);
     });
     document.getElementById('btnCreateClass').addEventListener('click', function() {
       hideProfessorSections();
       document.getElementById('createClassSection').style.display = "block";
-      updateTopNavClasses(this);
+      updateSidebarActive(this);
     });
     
     // Dynamic addition of evaluation questions
     document.getElementById('btnAddQuestion').addEventListener('click', function() {
-      var questionHtml =
+      const questionHtml =
         '<div class="mb-3 question-item">' +
           '<label class="form-label text-white">Question</label>' +
           '<input type="text" class="form-control rounded cust-form" placeholder="Enter question text" aria-label="Question Text">' +
@@ -437,10 +421,9 @@
     
     // Evaluation form submission with input validation
     document.getElementById('btnSubmitEval').addEventListener('click', function() {
-      var valid = true;
-      var errorMessages = "";
+      let valid = true;
+      let errorMessages = "";
       
-      // Validate evaluation title and description
       if (document.getElementById('txtEvalTitle').value.trim() === "") {
         valid = false;
         errorMessages += "Evaluation Title is required.<br>";
@@ -450,11 +433,10 @@
         errorMessages += "Evaluation Description is required.<br>";
       }
       
-      // Validate each question in the questionsContainer
-      var questionItems = document.querySelectorAll('#questionsContainer .question-item');
+      const questionItems = document.querySelectorAll('#questionsContainer .question-item');
       questionItems.forEach(function(item, index) {
-        var qText = item.querySelector('input').value.trim();
-        var qType = item.querySelectorAll('select')[0].value;
+        const qText = item.querySelector('input').value.trim();
+        const qType = item.querySelectorAll('select')[0].value;
         if (qText === "") {
           valid = false;
           errorMessages += "Question " + (index + 1) + " text is required.<br>";
@@ -489,13 +471,12 @@
     
     // Create class form submission with input validation
     document.getElementById('btnSubmitCreateClass').addEventListener('click', function() {
-      var className = document.getElementById('txtClassName').value.trim();
-      var classDesc = document.getElementById('txtClassDescription').value.trim();
-      var term = document.getElementById('cboTerm').value.trim();
-      var visibility = document.getElementById('cboVisibility').value.trim();
+      const className = document.getElementById('txtClassName').value.trim();
+      const term = document.getElementById('cboTerm').value.trim();
+      const visibility = document.getElementById('cboVisibility').value.trim();
       
-      var valid = true;
-      var errorMessages = "";
+      let valid = true;
+      let errorMessages = "";
       
       if (className === "") {
         valid = false;
