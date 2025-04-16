@@ -1,17 +1,17 @@
 STUDENT AND FACULTY MEMBER
 
 STUDENT:
-    - Writing reviews about group they are in.
-    - Key from professor which enrolls them in class
-    - Student should be able to leave a group
-    - View teammates info (Name, email, contact info(phone, disc, teams))
-    - Take a survey that faculty has given and apply to each person in group
-        - Can select public or private
-    - Results of the feedback
+    - Writing reviews about group they are in. (done)
+    - Key from professor which enrolls them in class (done)
+    - Student should be able to leave a group (done)
+    - View teammates info (Name, email, contact info(phone, disc, teams)) (done)
+    - Take a survey that faculty has given and apply to each person in group (done but need backend)
+        - Can select public or private (done)
+    - Results of the feedback (done when backend is ready)
 
 TEACHER:
-    - See everything
-    - Should be able to create evaluations with different types of questions (mult. choice, multi select, short answer, essay, likehardt scale)
-    - See all responses
-    - Who has not completed
-    - Release data to end users or not
+    - See everything (Mostly done - waiting for backend)
+    - Should be able to create evaluations with different types of questions (mult. choice, multi select, short answer, essay, likehardt scale) (DONE)
+    - See all responses (Mostly done- waiting for backend)
+    - Who has not completed (done)
+    - Release data to end users or not (doneish - need backend)

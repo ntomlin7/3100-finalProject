@@ -6,19 +6,19 @@
   <title>SwollenHippo Group Evals - Student View</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/pulse/bootstrap.min.css" integrity="sha384-L7+YG8QLqGvxQGffJ6utDKFwmGwtLcCjtwvonVZR/Ba2VzhpMwBz51GaXnUsuYbj" crossorigin="anonymous">
   <style>
-    /* Re-use your custom styling */
+    /* Cards and forms */
     .card {
       border: none;
       border-radius: 1rem;
-      background-color: #fff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      background-color: #262335;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       position: relative;
     }
     .cust-form {
       border: none;
       border-radius: 1rem;
-      background-color: #302D3F;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      background-color: #262335;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       position: relative;
     }
     .card-header {
@@ -68,64 +68,60 @@
       background-color: #302D3F;
       color: #fff;
     }
+    /* Active list-group items mimic the styling of your team buttons */
+    .list-group-item.active, 
+    .list-group-item.active:hover {
+      background-color: #3A324B;
+      border-color: #3A324B;
+      color: #fff;
+    }
   </style>
 </head>
 <body class="bg-dark">
   <!-- Main dashboard view -->
   <div class="container mt-4">
-    <!-- Top navigation buttons specific to student view -->
-    <div class="row mb-4" role="navigation" aria-label="Student Main Navigation">
-      <div class="col-md-3">
-        <button class="btn btn-primary btn-lg btn-block rounded" id="btnMyEvals" aria-label="View My Evaluations">
-          My Evaluations
-        </button>
-      </div>
-      <div class="col-md-3">
-        <button class="btn btn-primary btn-lg btn-block rounded" id="btnGroupInfo" aria-label="View Group Information">
-          Group Info
-        </button>
-      </div>
-      <div class="col-md-3">
-        <button class="btn btn-primary btn-lg btn-block rounded" id="btnEnrollKey" aria-label="Enter Enrollment Key">
-          Enrollment Key
-        </button>
-      </div>
-      <div class="col-md-3">
-        <button class="btn btn-primary btn-lg btn-block rounded" id="btnTakeEval" aria-label="Take Evaluation">
-          Take Evaluation
-        </button>
-      </div>
-    </div>
-    
-    <!-- Main content area -->
     <div class="row">
-      <!-- Left sidebar: Classes and Invites (same as professor view) -->
-      <div class="col-md-3 rounded" role="complementary" aria-label="Sidebar: Classes and Invites">
-        <!-- Classes card -->
+      <!-- Left Sidebar -->
+      <div class="col-md-3 rounded" role="complementary" aria-label="Sidebar Navigation">
+        <!-- Menu Card: Navigation items -->
         <div class="card mb-4 rounded">
-          <div class="card-header bg-primary text-white">
-            <h5 class="mb-0" aria-label="Classes Section Header">Classes</h5>
+          <div class="card-header bg-primary text-white rounded">
+            <h5 class="mb-0" aria-label="Menu">Menu</h5>
           </div>
           <div class="card-body p-0">
-            <div class="list-group" role="list" aria-label="List of Classes">
-              <a href="#" class="list-group-item list-group-item-action cust-card-color" aria-label="Team 1">Team 1</a>
-              <a href="#" class="list-group-item list-group-item-action cust-card-color" aria-label="Team 2">Team 2</a>
-              <a href="#" class="list-group-item list-group-item-action cust-card-color" aria-label="Burchfield">Burchfield</a>
+            <div class="list-group" id="sidebarMenu" role="list" aria-label="Navigation Menu">
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" id="btnMyEvals" aria-label="View My Evaluations">My Evaluations</a>
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" id="btnGroupInfo" aria-label="View Group Info">Group Info</a>
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" id="btnEnrollKey" aria-label="Enter Enrollment Key">Enrollment Key</a>
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" id="btnTakeEval" aria-label="Take Evaluation">Take Evaluation</a>
             </div>
           </div>
         </div>
-        <!-- Invites card -->
-        <div class="card mb-4 rounded">
-          <div class="card-header bg-primary text-white">
+        <!-- Classes Card -->
+        <div class="card mb-4 rounded" aria-label="Classes Section">
+          <div class="card-header bg-primary text-white rounded">
+            <h5 class="mb-0" aria-label="Classes Section Header">Classes</h5>
+          </div>
+          <div class="card-body rounded p-0">
+            <div class="list-group" role="list" aria-label="List of Classes">
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" aria-label="Team 1">Team 1</a>
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" aria-label="Team 2">Team 2</a>
+              <a href="#" class="list-group-item list-group-item-action cust-card-color rounded" aria-label="Burchfield">Burchfield</a>
+            </div>
+          </div>
+        </div>
+        <!-- Invites Card -->
+        <div class="card mb-4 rounded" aria-label="Invites Section">
+          <div class="card-header bg-primary text-white rounded">
             <h5 class="mb-0" aria-label="Invites Section Header">Invites</h5>
           </div>
           <div class="card-body p-0">
             <ul class="list-group" role="list" aria-label="List of Invites">
-              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cust-card-color" aria-label="Pending Invites">
+              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cust-card-color rounded" aria-label="Pending Invites">
                 Pending Invites
                 <span class="badge badge-primary badge-pill rounded" aria-label="14 pending">14</span>
               </a>
-              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cust-card-color" aria-label="Sent Invites">
+              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center cust-card-color rounded" aria-label="Sent Invites">
                 Sent Invites
                 <span class="badge badge-primary badge-pill rounded" aria-label="2 sent">2</span>
               </a>
@@ -134,12 +130,12 @@
         </div>
       </div>
       
-      <!-- Student's main content area -->
+      <!-- Student's Main Content Area -->
       <div class="col-md-9 rounded" role="main">
         <!-- My Evaluations Section -->
         <div id="myEvalsSection">
           <div class="card rounded cust-card-color">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header bg-primary text-white rounded">
               <h5 class="mb-0" aria-label="My Evaluations Section Header">My Evaluations</h5>
             </div>
             <div class="card-body">
@@ -154,7 +150,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- Additional evaluation cards can be added here -->
+                <!-- Additional evaluation cards as needed -->
               </div>
             </div>
           </div>
@@ -163,15 +159,15 @@
         <!-- Group Info Section -->
         <div id="groupInfoSection" style="display:none;">
           <div class="card rounded cust-card-color">
-            <div class="card-header bg-info text-white">
+            <div class="card-header bg-info text-white rounded">
               <h5 class="mb-0" aria-label="Group Info Section Header">Group Info</h5>
             </div>
             <div class="card-body">
               <ul class="list-group" role="list" aria-label="Teammates Information">
-                <li class="list-group-item cust-card-color">
+                <li class="list-group-item cust-card-color rounded">
                   <strong>John Doe</strong> – john.doe@example.com – Phone: 123-456-7890 – Discord: JohnD
                 </li>
-                <li class="list-group-item cust-card-color">
+                <li class="list-group-item cust-card-color rounded">
                   <strong>Jane Smith</strong> – jane.smith@example.com – Teams: JaneS
                 </li>
                 <!-- More teammates as needed -->
@@ -188,7 +184,7 @@
         <!-- Enrollment Key Section -->
         <div id="enrollKeySection" style="display:none;">
           <div class="card rounded cust-card-color">
-            <div class="card-header bg-warning text-white">
+            <div class="card-header bg-warning text-white rounded">
               <h5 class="mb-0" aria-label="Enrollment Key Section Header">Enrollment Key</h5>
             </div>
             <div class="card-body">
@@ -210,7 +206,7 @@
         <!-- Take Evaluation Section -->
         <div id="takeEvalSection" style="display:none;">
           <div class="card rounded cust-card-color">
-            <div class="card-header bg-secondary text-white">
+            <div class="card-header bg-secondary text-white rounded">
               <h5 class="mb-0" aria-label="Take Evaluation Section Header">Take Evaluation</h5>
             </div>
             <div class="card-body">
@@ -237,60 +233,58 @@
           </div>
         </div>
         
-      </div> <!-- End student's main content area -->
-    </div> <!-- End row -->
-  </div> <!-- End container -->
+      </div> <!-- End Main Content Area -->
+    </div> <!-- End Row -->
+  </div> <!-- End Container -->
   
-  <!-- Vanilla JavaScript (no jQuery) -->
+  <!-- JavaScript (Vanilla JS) -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    // Helper function to hide all student sections
+    // Helper: hide all student sections by IDs
     function hideStudentSections() {
-      var sections = ['myEvalsSection', 'groupInfoSection', 'enrollKeySection', 'takeEvalSection'];
+      const sections = ['myEvalsSection', 'groupInfoSection', 'enrollKeySection', 'takeEvalSection'];
       sections.forEach(function(id) {
-        var section = document.getElementById(id);
-        if (section) {
-          section.style.display = "none";
+        const el = document.getElementById(id);
+        if (el) {
+          el.style.display = "none";
         }
       });
     }
     
-    // Helper function to update top navigation button styles
-    function updateTopNavClasses(activeButton) {
-      var navButtons = document.querySelectorAll('.row.mb-4 .btn');
-      navButtons.forEach(function(button) {
-        button.classList.remove('btn-secondary');
-        button.classList.add('btn-primary');
+    // Helper: Update active navigation in sidebar menu (for student view)
+    function updateSidebarActive(activeElement) {
+      const navItems = document.querySelectorAll('#sidebarMenu .list-group-item');
+      navItems.forEach(function(item) {
+        item.classList.remove('active');
       });
-      activeButton.classList.remove('btn-primary');
-      activeButton.classList.add('btn-secondary');
+      activeElement.classList.add('active');
     }
     
     // Section switching event listeners
     document.getElementById('btnMyEvals').addEventListener('click', function() {
       hideStudentSections();
       document.getElementById('myEvalsSection').style.display = "block";
-      updateTopNavClasses(this);
+      updateSidebarActive(this);
     });
     document.getElementById('btnGroupInfo').addEventListener('click', function() {
       hideStudentSections();
       document.getElementById('groupInfoSection').style.display = "block";
-      updateTopNavClasses(this);
+      updateSidebarActive(this);
     });
     document.getElementById('btnEnrollKey').addEventListener('click', function() {
       hideStudentSections();
       document.getElementById('enrollKeySection').style.display = "block";
-      updateTopNavClasses(this);
+      updateSidebarActive(this);
     });
     document.getElementById('btnTakeEval').addEventListener('click', function() {
       hideStudentSections();
       document.getElementById('takeEvalSection').style.display = "block";
-      updateTopNavClasses(this);
+      updateSidebarActive(this);
     });
     
     // Enrollment Key form submission with input validation
     document.getElementById('btnSubmitEnrollKey').addEventListener('click', function() {
-      var enrollmentKey = document.getElementById('txtEnrollKey').value.trim();
+      const enrollmentKey = document.getElementById('txtEnrollKey').value.trim();
       if (enrollmentKey === "") {
         Swal.fire({
           title: "Input Error",
@@ -308,9 +302,9 @@
     
     // Take Evaluation form submission with input validation
     document.getElementById('btnSubmitEvalResponse').addEventListener('click', function() {
-      var response = document.getElementById('txtEvalResponse').value.trim();
-      var visibility = document.getElementById('cboResponseVisibility').value.trim();
-      var errors = "";
+      const response = document.getElementById('txtEvalResponse').value.trim();
+      const visibility = document.getElementById('cboResponseVisibility').value.trim();
+      let errors = "";
       if (response === "") {
         errors += "Your evaluation response is required.<br>";
       }
